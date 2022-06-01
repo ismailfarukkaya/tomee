@@ -18,8 +18,8 @@
   <packaging>war</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.myfaces2>2.3.0</version.myfaces2>
-    <version.deltaspike>1.9.3</version.deltaspike>
+    <version.myfaces2>3.0.1</version.myfaces2>
+    <version.deltaspike>1.9.7-SNAPSHOT</version.deltaspike>
     <version.extval>2.0.8</version.extval>
     <tomee.version>9.0.0-M8-SNAPSHOT</tomee.version>
   </properties>
@@ -29,10 +29,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
+        <version>3.10.1</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>11</source>
+          <target>11</target>
         </configuration>
       </plugin>
       <plugin>
@@ -46,7 +46,7 @@
       <plugin>
         <groupId>org.apache.openjpa</groupId>
         <artifactId>openjpa-maven-plugin</artifactId>
-        <version>3.2.1</version>
+        <version>3.2.2</version>
         <configuration>
           <includes>org/superbiz/deltaspike/domain/*.class</includes>
         </configuration>
@@ -174,50 +174,106 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.10</version>
+      <version>1.7.36</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.deltaspike.core</groupId>
       <artifactId>deltaspike-core-api</artifactId>
       <version>${version.deltaspike}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+      <classifier>jakarta</classifier>
     </dependency>
     <dependency>
       <groupId>org.apache.deltaspike.core</groupId>
       <artifactId>deltaspike-core-impl</artifactId>
       <version>${version.deltaspike}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+      <classifier>jakarta</classifier>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.deltaspike.modules</groupId>
       <artifactId>deltaspike-jsf-module-api</artifactId>
       <version>${version.deltaspike}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+      <classifier>jakarta</classifier>
     </dependency>
     <dependency>
       <groupId>org.apache.deltaspike.modules</groupId>
       <artifactId>deltaspike-jsf-module-impl</artifactId>
       <version>${version.deltaspike}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+      <classifier>jakarta</classifier>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.deltaspike.modules</groupId>
       <artifactId>deltaspike-data-module-api</artifactId>
       <version>${version.deltaspike}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+      <classifier>jakarta</classifier>
     </dependency>
     <dependency>
       <groupId>org.apache.deltaspike.modules</groupId>
       <artifactId>deltaspike-data-module-impl</artifactId>
       <version>${version.deltaspike}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+      <classifier>jakarta</classifier>
     </dependency>
     <dependency>
       <groupId>org.apache.deltaspike.modules</groupId>
       <artifactId>deltaspike-security-module-api</artifactId>
       <version>${version.deltaspike}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+      <classifier>jakarta</classifier>
     </dependency>
     <dependency>
       <groupId>org.apache.deltaspike.modules</groupId>
       <artifactId>deltaspike-security-module-impl</artifactId>
       <version>${version.deltaspike}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+      <classifier>jakarta</classifier>
       <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -231,7 +287,7 @@
       <version>${version.extval}</version>
       <exclusions>
         <exclusion>
-          <groupId>jakarta.persistence</groupId>
+          <groupId>javax.persistence</groupId>
           <artifactId>persistence-api</artifactId>
         </exclusion>
       </exclusions>
@@ -242,7 +298,7 @@
       <version>${version.extval}</version>
       <exclusions>
         <exclusion>
-          <groupId>jakarta.validation</groupId>
+          <groupId>javax.validation</groupId>
           <artifactId>validation-api</artifactId>
         </exclusion>
       </exclusions>
@@ -257,24 +313,52 @@
       <groupId>org.apache.deltaspike.modules</groupId>
       <artifactId>deltaspike-test-control-module-api</artifactId>
       <version>${version.deltaspike}</version>
+      <classifier>jakarta</classifier>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.deltaspike.modules</groupId>
       <artifactId>deltaspike-test-control-module-impl</artifactId>
       <version>${version.deltaspike}</version>
+      <classifier>jakarta</classifier>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.deltaspike.cdictrl</groupId>
       <artifactId>deltaspike-cdictrl-api</artifactId>
       <version>${version.deltaspike}</version>
+      <classifier>jakarta</classifier>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.deltaspike.cdictrl</groupId>
       <artifactId>deltaspike-cdictrl-openejb</artifactId>
       <version>${version.deltaspike}</version>
+      <classifier>jakarta</classifier>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
       <scope>test</scope>
     </dependency>
     <!-- only needed for mocked cdi-beans -->
