@@ -211,7 +211,7 @@
     <version.eclipselink>3.0.3</version.eclipselink>
     <version.hibernate.orm>6.1.4.Final</version.hibernate.orm>
     <version.hibernate.validator>7.0.5.Final</version.hibernate.validator>
-    <version.derby>10.14.2.0</version.derby>
+    <version.derby>10.15.2.0</version.derby>
     <version.hsqldb>2.7.1</version.hsqldb>
 
     <!-- arquillian related -->
